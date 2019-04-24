@@ -218,6 +218,11 @@ $("#input_percentage")
                     regexp: {
                         regexp: /^-?[0-9]\d*(\.\d+)?$/,
                         message: 'The input is invalid.'
+                    },
+                    between: {
+                        min: -10,
+                        max: 10,
+                        message: 'The percentage must be between -10.0 and 10.0'
                     }
                 }
             }
