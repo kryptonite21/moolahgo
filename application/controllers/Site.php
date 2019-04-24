@@ -34,10 +34,8 @@ class Site extends Controller
     public function calculate()
     {
         $post = $_POST;
-        if(isset($post['btn_submit'])){
-            $moolahgo = $this->model('Moolahgo');
-            $moolahgo->calculate($post);
-        }
+        $moolahgo = $this->model('Moolahgo');
+        $moolahgo->calculate($post);
         header('Location: '.BASE_URL.'?url=site#calculator');
     }
     

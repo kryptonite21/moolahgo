@@ -59,13 +59,26 @@
 <hr />
 
 <?php
-// flash message
+/**
+ * Success flash message
+ */
     if(isset($_SESSION['success'])){
         $message = $_SESSION['success'];
         unset($_SESSION['success']);
         echo '<div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class="icon fa fa-check"></i> Success</h4>'.$message.'. To view, click <a href="#transactions"><strong>here</strong></a>.</div>';
+        <h4><i class="fa fa-check-circle-o"></i> Success</h4>'.$message.'. To view, click <a href="#transactions"><strong>here</strong></a>.</div>';
+    }
+
+/**
+ * Error flash message
+ */
+    if(isset($_SESSION['error'])){
+        $message = $_SESSION['error'];
+        unset($_SESSION['error']);
+        echo '<div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="fa fa-times"></i> Error</h4>'.$message.'</div>';
     }
 ?>
 
