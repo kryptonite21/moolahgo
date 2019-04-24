@@ -12,22 +12,30 @@ class Moolahgo extends Model
      * @return void
      */
     public function calculate($post){
-        $percentage = isset($post['percentage']) ? $post['percentage'] : 0;
-        $final_amount = $post['amount'] + (($percentage / 100) * $post['amount']);
 
-        $session_data['date'] = $post['date'];
-        $session_data['amount'] = $post['amount'];
-        $session_data['percentage'] = $percentage;
-        $session_data['final_amount'] = $final_amount;
+        if(isset($post['date'], $post['amount'])){
+            $percentage = (isset($post['percentage']) && $post['percentage'] != 0) ? $post['percentage'] : 0;
+            $final_amount = $post['amount'] + (($percentage / 100) * $post['amount']);
+            $session_data['date'] = $post['date'];
+            $session_data['amount'] = $post['amount'];
+            $session_data['percentage'] = $percentage;
+            $session_data['final_amount'] = $final_amount;
 
-        /**
-         * For saving the transaction to database
-         */
-        //$this->store($session_data);
-        
-        $_SESSION['transactions'][] = $session_data;
+            /**
+             * For saving the transaction to database
+             */
+            //$this->store($session_data);
+            
+            $_SESSION['transactions'][] = $session_data;
 
-        $_SESSION['success'] = 'Transaction has been saved.';
+            $_SESSION['success'] = 'Transaction has been saved.';
+        }else{
+            $_SESSION['error'] = 'Invalid transaction.';
+        }
+
+
+
+
     }
 
 /**
