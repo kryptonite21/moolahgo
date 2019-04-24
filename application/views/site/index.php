@@ -79,7 +79,7 @@
         <div class="form-group">
             <label for="input_date" class="col-lg-2 control-label">Date:</label>
             <div class="col-lg-10">
-                <input type="text" name="date" class="form-control" autocomplete="off" id="input_date" placeholder="Date" required>
+                <input type="text" name="date" class="form-control" id="input_date" autocomplete="off" id="input_date" placeholder="Date" required>
             </div>
         </div>
 
@@ -228,10 +228,12 @@ $("#input_percentage")
     $('#input_date').datetimepicker({
         format: 'YYYY-MM-DD'
     });
-</script>
 
+    $('#input_date').on('dp.change dp.show', function (e) {
+      // Revalidate the date when user change it
+      $('#data_form').bootstrapValidator('revalidateField', 'date');
+    });
 
-<script>
 $('.carousel').carousel({
 interval: 3000 //changes the speed
 })
