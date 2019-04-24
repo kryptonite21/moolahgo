@@ -67,7 +67,7 @@
         unset($_SESSION['success']);
         echo '<div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class="fa fa-check-circle-o"></i> Success</h4>'.$message.'. To view, click <a href="#transactions"><strong>here</strong></a>.</div>';
+        <h4><i class="fa fa-check"></i> Success</h4>'.$message.'. To view, click <a href="#transactions"><strong>here</strong></a>.</div>';
     }
 
 /**
